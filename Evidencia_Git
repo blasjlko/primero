@@ -1,0 +1,144 @@
+$ Git init
+Initialized empty Git repository in C:/Users/profe/Desktop/ejercigit/.git/
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ ls -al
+total 16
+drwxr-xr-x 1 profe 197609 0 May 16 23:44 ./
+drwxr-xr-x 1 profe 197609 0 May 16 23:44 ../
+drwxr-xr-x 1 profe 197609 0 May 16 23:44 .git/
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Touch index.html
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Git add index.html
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Git rm --cached index.html
+rm 'index.html'
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Git add index.html
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.html
+
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Git commit -m"add:archivo index"
+[master (root-commit) d605c19] add:archivo index
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Git log
+commit d605c1980c6fb5efe46624465e0f45e8c176c26d (HEAD -> master)
+Author: blasjlko <blancasofiapereamontealegre@gmail.com>
+Date:   Sun May 16 23:47:38 2021 -0500
+
+    add:archivo index
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Git commit --amend
+[master 7b6e113] add:archivo index
+ Date: Sun May 16 23:47:38 2021 -0500
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Git status
+On branch master
+nothing to commit, working tree clean
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Git tag
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Git tag -1"v1.8.5*"
+error: unknown switch `1'
+usage: git tag [-a | -s | -u <key-id>] [-f] [-m <msg> | -F <file>]
+                <tagname> [<head>]
+   or: git tag -d <tagname>...
+   or: git tag -l [-n[<num>]] [--contains <commit>] [--no-contains <commit>] [--points-at <object>]
+                [--format=<format>] [--merged <commit>] [--no-merged <commit>] [<pattern>...]
+   or: git tag -v [--format=<format>] <tagname>...
+
+    -l, --list            list tag names
+    -n[<n>]               print <n> lines of each tag message
+    -d, --delete          delete tags
+    -v, --verify          verify tags
+
+Tag creation options
+    -a, --annotate        annotated tag, needs a message
+    -m, --message <message>
+                          tag message
+    -F, --file <file>     read message from file
+    -e, --edit            force edit of tag message
+    -s, --sign            annotated and GPG-signed tag
+    --cleanup <mode>      how to strip spaces and #comments from message
+    -u, --local-user <key-id>
+                          use another key to sign the tag
+    -f, --force           replace the tag if exists
+    --create-reflog       create a reflog
+
+Tag listing options
+    --column[=<style>]    show tag list in columns
+    --contains <commit>   print only tags that contain the commit
+    --no-contains <commit>
+                          print only tags that don't contain the commit
+    --merged <commit>     print only tags that are merged
+    --no-merged <commit>  print only tags that are not merged
+    --sort <key>          field name to sort on
+    --points-at <object>  print only tags of the object
+    --format <format>     format to use for the output
+    --color[=<when>]      respect format colors
+    -i, --ignore-case     sorting and filtering are case insensitive
+
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Git tag -a una_etiqueta -m"WELCOME"
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Git show una_etiqueta
+tag una_etiqueta
+Tagger: blasjlko <blancasofiapereamontealegre@gmail.com>
+Date:   Sun May 16 23:52:32 2021 -0500
+
+WELCOME
+
+commit 7b6e113c9b17ad6e9d2f1c0e6936d924bd2d3747 (HEAD -> master, tag: una_etiqueta)
+Author: blasjlko <blancasofiapereamontealegre@gmail.com>
+Date:   Sun May 16 23:47:38 2021 -0500
+
+    add:archivo index
+
+diff --git a/index.html b/index.html
+new file mode 100644
+index 0000000..e69de29
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Git tag -a una_etiqueta_hash_del_commit -m"HAPPY NEW YEAR"
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Git push origin una_etiqueta
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+profe@LAPTOP-FN5TKO3C MINGW64 ~/Desktop/ejercigit (master)
+$ Git push origin --tags
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
